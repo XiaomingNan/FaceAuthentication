@@ -1,6 +1,6 @@
 tensorflow==2.5.0
 retinaface==1.1.1
-streamlit==1.39.0
+streamlit==1.10.0
 opencv-python-headless==4.6.0.66
 numpy==1.19.5
 Pillow==10.2.0
