@@ -1,5 +1,5 @@
 tensorflow==2.18.0
-retinaface==0.0.17
+retinaface==0.1.1
 streamlit==1.39.0
 opencv-python-headless==4.10.0.84
 numpy==1.26.4
