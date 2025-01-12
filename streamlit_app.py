@@ -18,7 +18,8 @@ users_collection = db.Users
 
 def detect_face(image):
     np_image = np.array(image.convert('RGB'))
-    faces = RetinaFace.detect_faces(np_image)
+    opencv_image = cv2.cvtColor(np_image, cv2.COLOR_RGB2BGR)
+    faces = RetinaFace.detect_faces(opencv_image)
     if not faces:
         return None
     if isinstance(faces, dict):
