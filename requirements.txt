@@ -8,4 +8,4 @@ facenet-pytorch==2.5.2
 retinaface==1.1.1
 pymongo==4.7.0
 streamlit-webrtc==0.44.6
-tensorflow==2.18.0
+tensorflow==2.5.0
