@@ -1,4 +1,4 @@
-tensorflow==2.5.0
+tensorflow==2.16.0
 retinaface==1.1.1
 streamlit==1.25.0
 opencv-python-headless==4.8.1.78
