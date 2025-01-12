@@ -17,8 +17,10 @@ users_collection = db.Users
 
 
 def detect_face(image):
-    np_image = np.array(image)
+    np_image = np.array(image.convert('RGB'))
     faces = RetinaFace.detect_faces(np_image)
+    if not faces:
+        return None
     if isinstance(faces, dict):
         for key, face in faces.items():
             bbox = face["facial_area"]
