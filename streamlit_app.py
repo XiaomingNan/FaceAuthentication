@@ -18,15 +18,13 @@ users_collection = db.Users
 
 def detect_face(image):
     np_image = np.array(image.convert('RGB'))
-    opencv_image = cv2.cvtColor(np_image, cv2.COLOR_RGB2BGR)
-    faces = RetinaFace.detect_faces(opencv_image)
-    if not faces:
-        return None
-    if isinstance(faces, dict):
-        for key, face in faces.items():
-            bbox = face["facial_area"]
-            aligned_face = np_image[bbox[1]:bbox[3], bbox[0]:bbox[2]]
-            return aligned_face
+    gray = cv2.cvtColor(np_image, cv2.COLOR_RGB2GRAY)
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+    if len(faces) > 0:
+        x, y, w, h = faces[0]
+        aligned_face = np_image[y:y+h, x:x+w]
+        return aligned_face
     return None
 
 
