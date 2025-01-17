@@ -94,8 +94,7 @@ elif option == "Existing User":
             captured_image = st.camera_input("Please take a photo when ready")
             if captured_image:
                 new_image = Image.open(captured_image)
-                device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-                recognition_model = InceptionResnetV1(pretrained='vggface2').to(device).eval()
+                recognition_model = InceptionResnetV1(pretrained='vggface2').eval()
                 stored_embedding = extract_features(stored_image, recognition_model)
                 new_embedding = extract_features(new_image, recognition_model)
                 if compare_faces(stored_embedding, new_embedding):
