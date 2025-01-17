@@ -1,4 +1,4 @@
-tensorflow
+tensorflow==2.18.0
 retinaface
 streamlit
 opencv-python-headless
